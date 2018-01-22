@@ -1,5 +1,9 @@
 {
     "github-oauth": {
         "github.com": "{{ composer_github_oauth_token }}"
-    }
+    },
+    "bitbucket-oauth": {{ composer_bitbucket_oath | to_nice_json(indent=8) }},
+    "gitlab-token": {{ composer_gitlab_token | to_nice_json(indent=8) }},
+    "gitlab-oath": {{ composer_gitlab_oath | to_nice_json(indent=8) }},
+    "http-basic": {{ composer_http_basic | to_nice_json(indent=8) }}
 }

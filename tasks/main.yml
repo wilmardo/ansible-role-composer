@@ -49,7 +49,11 @@
     dest: "{{ composer_home_path }}/auth.json"
     owner: "{{ composer_home_owner }}"
     group: "{{ composer_home_group }}"
-  when: composer_github_oauth_token != ''
+  when: composer_github_oauth_token != '' or
+        composer_bitbucket_oath != {} or
+        composer_gitlab_token != {} or
+        composer_gitlab_oath != {} or
+        composer_http_basic != {}
 
 - include: global-require.yml
   when: composer_global_packages|length > 0
